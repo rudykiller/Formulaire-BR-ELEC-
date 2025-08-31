@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BR-ELEC - Formulaire Client</title>
+</head>
+<body style="font-family: Arial, sans-serif; background:#1a1a1a; color:white; display:flex; justify-content:center; align-items:center; height:100vh; margin:0;">
+  <div style="background:#222; padding:20px; border-radius:12px; width:100%; max-width:400px; text-align:center;">
+    <img src="logo.png" alt="Logo BR-ELEC" style="width:80px; margin-bottom:10px;">
+    <h2>Formulaire Client</h2>
+
+    <form id="clientForm" action="https://formsubmit.co/rudybouteman@gmail.com" method="POST">
+      <!-- Désactiver Captcha -->
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="nom" placeholder="Nom" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none;"><br>
+      <input type="text" name="prenom" placeholder="Prénom" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none;"><br>
+      <input type="text" name="adresse" placeholder="Adresse" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none;"><br>
+      <input type="tel" name="telephone" placeholder="Téléphone" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none;"><br>
+      <input type="email" name="email" placeholder="Email" required style="width:100%; padding:10px; margin:8px 0; border-radius:8px; border:none;"><br>
+
+      <button type="submit" style="width:100%; padding:12px; background:#facc15; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">Envoyer</button>
+    </form>
+
+    <!-- Message de confirmation caché au départ -->
+    <p id="message" style="display:none; margin-top:15px; color:#facc15; font-weight:bold;">
+      ✅ Merci, vos informations ont été envoyées !
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById("clientForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault(); // Empêche le rechargement
+      const formData = new FormData(form);
+
+      await fetch(form.action, {
+        method: "POST",
+        body: formData,
+      });
+
+      form.reset(); // Vide le formulaire
+      message.style.display = "block"; // Affiche le message de remerciement
+    });
+  </script>
+</body>
+</html>
+  </script></body>
+</html>
+  </script>
+</body>
+</html>
+<html>
